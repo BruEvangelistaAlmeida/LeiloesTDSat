@@ -150,7 +150,7 @@ public class cadastroVIEW extends javax.swing.JFrame {
         String valor = cadastroValor.getText();
         
         if(nome.isEmpty()|| valor.isEmpty()){
-            
+          JOptionPane.showMessageDialog(null, "Necessário preencher todos os campos.");  
             return;
         }
         String status = "A Venda";
@@ -159,11 +159,21 @@ public class cadastroVIEW extends javax.swing.JFrame {
         produtos.setStatus(status);
         
         ProdutosDAO produtodao = new ProdutosDAO();
-        produtodao.cadastrarProduto(produtos);
-
+        boolean cadastrado;
+        cadastrado = produtodao.cadastrarProduto(produtos);
+        
+        if(cadastrado){
+            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+                    cadastroNome.setText("");
+                    cadastroValor.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar produto!");
+            cadastroNome.setText("");
+            cadastroValor.setText("");
+            }
         
         }catch(NumberFormatException e){
-            
+         JOptionPane.showMessageDialog(null, "Utilizar numérico no valor.");   
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
