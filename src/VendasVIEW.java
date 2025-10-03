@@ -149,7 +149,10 @@ public class VendasVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarBotaoActionPerformed
-
+       this.dispose();
+        
+        listagemVIEW listagem = new listagemVIEW();
+        listagem.setVisible(true);
     }//GEN-LAST:event_voltarBotaoActionPerformed
 
     /**
